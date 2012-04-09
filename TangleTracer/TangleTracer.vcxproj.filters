@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{f908d7c5-d3bd-4579-96d5-773897c20d8a}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{dc167047-c295-4016-b5d9-485f0596e39a}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{7e65480f-f491-4475-9634-28ef3beb6dcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="World">
+      <UniqueIdentifier>{68dbd66a-030d-4985-b120-ebfc0b00059a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Build">
+      <UniqueIdentifier>{24c1280e-1cbd-4daa-8660-124e1cc1d00b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeometricObjects">
+      <UniqueIdentifier>{61e86c65-a55a-42b3-a8c3-954e51a77330}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tracers">
+      <UniqueIdentifier>{18a93f61-56f5-466c-a5c2-ff0a1013d1e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UserInterface">
+      <UniqueIdentifier>{940b85a9-7cbb-42f7-bcb8-9d5f3abcbc50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Samplers">
+      <UniqueIdentifier>{03330bdd-36cb-465d-a981-3811d2554898}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BRDFs">
+      <UniqueIdentifier>{43fd97a6-4a5a-4ab3-82e4-715c992cf773}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cameras">
+      <UniqueIdentifier>{8d8710b0-4c91-4f25-9c17-589a95f496ed}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_tangletracer.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_tangletracer.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_tangletracer.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Normal.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="RGBColor.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewPlane.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>World</Filter>
+    </ClCompile>
+    <ClCompile Include="Point3D.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Ray.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadeRec.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3D.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildBBCoverPic.cpp">
+      <Filter>Build</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildMultipleObjects.cpp">
+      <Filter>Build</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildSingleSphere.cpp">
+      <Filter>Build</Filter>
+    </ClCompile>
+    <ClCompile Include="GeometricObject.cpp">
+      <Filter>GeometricObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>GeometricObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>GeometricObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="MultipleObjects.cpp">
+      <Filter>Tracers</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleSphere.cpp">
+      <Filter>Tracers</Filter>
+    </ClCompile>
+    <ClCompile Include="Tracer.cpp">
+      <Filter>Tracers</Filter>
+    </ClCompile>
+    <ClCompile Include="tangletracer.cpp">
+      <Filter>UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderCanvas.cpp">
+      <Filter>UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderPixel.cpp">
+      <Filter>UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderThread.cpp">
+      <Filter>UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_tangeimagesize.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_tangeimagesize.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="tangeimagesize.cpp">
+      <Filter>UserInterface</Filter>
+    </ClCompile>
+    <ClCompile Include="Sampler.cpp">
+      <Filter>Samplers</Filter>
+    </ClCompile>
+    <ClCompile Include="Point2D.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Regular.cpp">
+      <Filter>Samplers</Filter>
+    </ClCompile>
+    <ClCompile Include="PureRandom.cpp">
+      <Filter>Samplers</Filter>
+    </ClCompile>
+    <ClCompile Include="NRooks.cpp">
+      <Filter>Samplers</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiJittered.cpp">
+      <Filter>Samplers</Filter>
+    </ClCompile>
+    <ClCompile Include="Jittered.cpp">
+      <Filter>Samplers</Filter>
+    </ClCompile>
+    <ClCompile Include="Hammersley.cpp">
+      <Filter>Samplers</Filter>
+    </ClCompile>
+    <ClCompile Include="BRDF.cpp">
+      <Filter>BRDFs</Filter>
+    </ClCompile>
+    <ClCompile Include="Lambertian.cpp">
+      <Filter>BRDFs</Filter>
+    </ClCompile>
+    <ClCompile Include="GlossySpecular.cpp">
+      <Filter>BRDFs</Filter>
+    </ClCompile>
+    <ClCompile Include="PerfectSpecular.cpp">
+      <Filter>BRDFs</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="Pinhole.cpp">
+      <Filter>Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="ThinLens.cpp">
+      <Filter>Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="FishEye.cpp">
+      <Filter>Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="Spherical.cpp">
+      <Filter>Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="StereoCamera.cpp">
+      <Filter>Cameras</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="tangletracer.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="tangletracer.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="tangletracer.h">
+      <Filter>UserInterface</Filter>
+    </CustomBuild>
+    <CustomBuild Include="imagesize.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="tangeimagesize.h">
+      <Filter>UserInterface</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_tangletracer.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Normal.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="RGBColor.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewPlane.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>World</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Point3D.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadeRec.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3D.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="GeometricObject.h">
+      <Filter>GeometricObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>GeometricObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>GeometricObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="MultipleObjects.h">
+      <Filter>Tracers</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleSphere.h">
+      <Filter>Tracers</Filter>
+    </ClInclude>
+    <ClInclude Include="Tracer.h">
+      <Filter>Tracers</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderCanvas.h">
+      <Filter>UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderPixel.h">
+      <Filter>UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderThread.h">
+      <Filter>UserInterface</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_imagesize.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sampler.h">
+      <Filter>Samplers</Filter>
+    </ClInclude>
+    <ClInclude Include="Point2D.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Regular.h">
+      <Filter>Samplers</Filter>
+    </ClInclude>
+    <ClInclude Include="PureRandom.h">
+      <Filter>Samplers</Filter>
+    </ClInclude>
+    <ClInclude Include="NRooks.h">
+      <Filter>Samplers</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiJittered.h">
+      <Filter>Samplers</Filter>
+    </ClInclude>
+    <ClInclude Include="Jittered.h">
+      <Filter>Samplers</Filter>
+    </ClInclude>
+    <ClInclude Include="Hammersley.h">
+      <Filter>Samplers</Filter>
+    </ClInclude>
+    <ClInclude Include="BRDF.h">
+      <Filter>BRDFs</Filter>
+    </ClInclude>
+    <ClInclude Include="Lambertian.h">
+      <Filter>BRDFs</Filter>
+    </ClInclude>
+    <ClInclude Include="GlossySpecular.h">
+      <Filter>BRDFs</Filter>
+    </ClInclude>
+    <ClInclude Include="PerfectSpecular.h">
+      <Filter>BRDFs</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="Pinhole.h">
+      <Filter>Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="ThinLens.h">
+      <Filter>Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="FishEye.h">
+      <Filter>Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="Spherical.h">
+      <Filter>Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="StereoCamera.h">
+      <Filter>Cameras</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
