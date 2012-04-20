@@ -13,7 +13,8 @@ Lambertian::Lambertian(void)
 	:   BRDF(),
 	kd(0.0), 
 	cd(0.0)
-{}
+{
+}
 
 
 // ---------------------------------------------------------------------- copy constructor
@@ -77,7 +78,7 @@ RGBColor
 		v.normalize();
 		Vector3D u = v ^ w;
 
-		Point3D sp = sampler_ptr->sample_hemisphere();  
+		Point3D sp = sampler_ptr->sample_hemisphere();
 		wi = sp.x * u + sp.y * v + sp.z * w;
 		wi.normalize(); 	
 
@@ -85,7 +86,6 @@ RGBColor
 
 		return (kd * cd * invPI); 
 }
-
 
 
 // ---------------------------------------------------------------------- rho

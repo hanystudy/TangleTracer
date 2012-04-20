@@ -77,12 +77,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ambient.cpp" />
+    <ClCompile Include="AmbientOccluder.cpp" />
+    <ClCompile Include="AreaLight.cpp" />
+    <ClCompile Include="AreaLighting.cpp" />
+    <ClCompile Include="BBox.cpp" />
+    <ClCompile Include="BeveledCylinder.cpp" />
+    <ClCompile Include="Box.cpp" />
     <ClCompile Include="BRDF.cpp" />
     <ClCompile Include="BuildBBCoverPic.cpp" />
     <ClCompile Include="BuildMultipleObjects.cpp" />
     <ClCompile Include="BuildSingleSphere.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Compound.cpp" />
+    <ClCompile Include="ConcaveSphere.cpp" />
+    <ClCompile Include="ConvexPartSphere.cpp" />
+    <ClCompile Include="Directional.cpp" />
+    <ClCompile Include="Disk.cpp" />
+    <ClCompile Include="Emissive.cpp" />
+    <ClCompile Include="EnvironmentLight.cpp" />
     <ClCompile Include="FishEye.cpp" />
+    <ClCompile Include="FlatMeshTriangle.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_tangeimagesize.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -102,21 +117,39 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeometricObject.cpp" />
+    <ClCompile Include="GlobalTrace.cpp" />
+    <ClCompile Include="GlossyReflector.cpp" />
     <ClCompile Include="GlossySpecular.cpp" />
+    <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Hammersley.cpp" />
+    <ClCompile Include="Instance.cpp" />
     <ClCompile Include="Jittered.cpp" />
     <ClCompile Include="Lambertian.cpp" />
+    <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="Maths.cpp" />
+    <ClCompile Include="Matte.cpp" />
+    <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="MeshTriangle.cpp" />
     <ClCompile Include="MultiJittered.cpp" />
     <ClCompile Include="MultipleObjects.cpp" />
     <ClCompile Include="NRooks.cpp" />
+    <ClCompile Include="OpenCylinder.cpp" />
+    <ClCompile Include="PathTrace.cpp" />
     <ClCompile Include="PerfectSpecular.cpp" />
+    <ClCompile Include="Phong.cpp" />
     <ClCompile Include="Pinhole.cpp" />
     <ClCompile Include="Plane.cpp" />
+    <ClCompile Include="ply.cpp" />
     <ClCompile Include="Point2D.cpp" />
     <ClCompile Include="Point3D.cpp" />
+    <ClCompile Include="PointLight.cpp" />
     <ClCompile Include="PureRandom.cpp" />
     <ClCompile Include="Ray.cpp" />
+    <ClCompile Include="RayCast.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="Reflective.cpp" />
     <ClCompile Include="Regular.cpp" />
     <ClCompile Include="RenderCanvas.cpp" />
     <ClCompile Include="RenderPixel.cpp" />
@@ -124,6 +157,9 @@
     <ClCompile Include="Sampler.cpp" />
     <ClCompile Include="ShadeRec.cpp" />
     <ClCompile Include="SingleSphere.cpp" />
+    <ClCompile Include="SmoothMeshTriangle.cpp" />
+    <ClCompile Include="SmoothTriangle.cpp" />
+    <ClCompile Include="SolidCylinder.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Spherical.cpp" />
     <ClCompile Include="stdafx.cpp" />
@@ -134,9 +170,12 @@
     <ClCompile Include="Normal.cpp" />
     <ClCompile Include="RGBColor.cpp" />
     <ClCompile Include="ThinLens.cpp" />
+    <ClCompile Include="Torus.cpp" />
     <ClCompile Include="Tracer.cpp" />
+    <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vector3D.cpp" />
     <ClCompile Include="ViewPlane.cpp" />
+    <ClCompile Include="Whitted.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -165,26 +204,58 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ambient.h" />
+    <ClInclude Include="AmbientOccluder.h" />
+    <ClInclude Include="AreaLight.h" />
+    <ClInclude Include="AreaLighting.h" />
+    <ClInclude Include="BBox.h" />
+    <ClInclude Include="BeveledCylinder.h" />
+    <ClInclude Include="Box.h" />
     <ClInclude Include="BRDF.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Compound.h" />
+    <ClInclude Include="ConcaveSphere.h" />
+    <ClInclude Include="ConvexPartSphere.h" />
+    <ClInclude Include="Directional.h" />
+    <ClInclude Include="Disk.h" />
+    <ClInclude Include="Emissive.h" />
+    <ClInclude Include="EnvironmentLight.h" />
     <ClInclude Include="FishEye.h" />
+    <ClInclude Include="FlatMeshTriangle.h" />
     <ClInclude Include="GeneratedFiles\ui_imagesize.h" />
     <ClInclude Include="GeneratedFiles\ui_tangletracer.h" />
     <ClInclude Include="GeometricObject.h" />
+    <ClInclude Include="GlobalTrace.h" />
+    <ClInclude Include="GlossyReflector.h" />
     <ClInclude Include="GlossySpecular.h" />
+    <ClInclude Include="Grid.h" />
     <ClInclude Include="Hammersley.h" />
+    <ClInclude Include="Instance.h" />
     <ClInclude Include="Jittered.h" />
     <ClInclude Include="Lambertian.h" />
+    <ClInclude Include="Light.h" />
+    <ClInclude Include="Material.h" />
+    <ClInclude Include="Matte.h" />
+    <ClInclude Include="Mesh.h" />
+    <ClInclude Include="MeshTriangle.h" />
     <ClInclude Include="MultiJittered.h" />
     <ClInclude Include="MultipleObjects.h" />
     <ClInclude Include="NRooks.h" />
+    <ClInclude Include="OpenCylinder.h" />
+    <ClInclude Include="PathTrace.h" />
     <ClInclude Include="PerfectSpecular.h" />
+    <ClInclude Include="Phong.h" />
     <ClInclude Include="Pinhole.h" />
     <ClInclude Include="Plane.h" />
+    <ClInclude Include="ply.h" />
     <ClInclude Include="Point2D.h" />
     <ClInclude Include="Point3D.h" />
+    <ClInclude Include="PointLight.h" />
     <ClInclude Include="PureRandom.h" />
     <ClInclude Include="Ray.h" />
+    <ClInclude Include="RayCast.h" />
+    <ClInclude Include="Rectangle.h" />
+    <ClInclude Include="Reflective.h" />
     <ClInclude Include="Regular.h" />
     <ClInclude Include="RenderCanvas.h" />
     <ClInclude Include="RenderPixel.h" />
@@ -192,6 +263,9 @@
     <ClInclude Include="Sampler.h" />
     <ClInclude Include="ShadeRec.h" />
     <ClInclude Include="SingleSphere.h" />
+    <ClInclude Include="SmoothMeshTriangle.h" />
+    <ClInclude Include="SmoothTriangle.h" />
+    <ClInclude Include="SolidCylinder.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Spherical.h" />
     <ClInclude Include="stdafx.h" />
@@ -212,9 +286,12 @@
     </CustomBuild>
     <ClInclude Include="StereoCamera.h" />
     <ClInclude Include="ThinLens.h" />
+    <ClInclude Include="Torus.h" />
     <ClInclude Include="Tracer.h" />
+    <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector3D.h" />
     <ClInclude Include="ViewPlane.h" />
+    <ClInclude Include="Whitted.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>

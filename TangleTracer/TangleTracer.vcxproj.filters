@@ -60,6 +60,24 @@
     <Filter Include="Cameras">
       <UniqueIdentifier>{8d8710b0-4c91-4f25-9c17-589a95f496ed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Lights">
+      <UniqueIdentifier>{4c4362e6-3235-4e82-8090-5af5c03fb9df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Materials">
+      <UniqueIdentifier>{f7ae0240-f190-40b5-bbf7-dcd80775917e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeometricObjects\Triangles">
+      <UniqueIdentifier>{930c7ae8-3b57-4050-ac34-1deabd817124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeometricObjects\Primitives">
+      <UniqueIdentifier>{27c4c4b6-ec19-4510-b551-58b2870629c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeometricObjects\Part Objects">
+      <UniqueIdentifier>{fe693b94-d635-44d3-bb19-e99f3199be29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GeometricObjects\Compound Objects">
+      <UniqueIdentifier>{a2e1369f-ae5d-4953-9afc-cc13f20c0bea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -114,12 +132,6 @@
       <Filter>Build</Filter>
     </ClCompile>
     <ClCompile Include="GeometricObject.cpp">
-      <Filter>GeometricObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Plane.cpp">
-      <Filter>GeometricObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="Sphere.cpp">
       <Filter>GeometricObjects</Filter>
     </ClCompile>
     <ClCompile Include="MultipleObjects.cpp">
@@ -206,6 +218,129 @@
     <ClCompile Include="StereoCamera.cpp">
       <Filter>Cameras</Filter>
     </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="Directional.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="AreaLight.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="Ambient.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="PointLight.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="Matte.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="RayCast.cpp">
+      <Filter>Tracers</Filter>
+    </ClCompile>
+    <ClCompile Include="Phong.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="AmbientOccluder.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="Emissive.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="EnvironmentLight.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="AreaLighting.cpp">
+      <Filter>Tracers</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcaveSphere.cpp">
+      <Filter>GeometricObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="BBox.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClCompile>
+    <ClCompile Include="Plane.cpp">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Rectangle.cpp">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Torus.cpp">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCylinder.cpp">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvexPartSphere.cpp">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Compound.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="SolidCylinder.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Disk.cpp">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="Instance.cpp">
+      <Filter>GeometricObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="BeveledCylinder.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="Grid.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ply.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshTriangle.cpp">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClCompile>
+    <ClCompile Include="FlatMeshTriangle.cpp">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClCompile>
+    <ClCompile Include="SmoothMeshTriangle.cpp">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClCompile>
+    <ClCompile Include="SmoothTriangle.cpp">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClCompile>
+    <ClCompile Include="Whitted.cpp">
+      <Filter>Tracers</Filter>
+    </ClCompile>
+    <ClCompile Include="Reflective.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="GlossyReflector.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="PathTrace.cpp">
+      <Filter>Tracers</Filter>
+    </ClCompile>
+    <ClCompile Include="GlobalTrace.cpp">
+      <Filter>Tracers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="tangletracer.ui">
@@ -265,12 +400,6 @@
       <Filter>Utilities</Filter>
     </ClInclude>
     <ClInclude Include="GeometricObject.h">
-      <Filter>GeometricObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Plane.h">
-      <Filter>GeometricObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="Sphere.h">
       <Filter>GeometricObjects</Filter>
     </ClInclude>
     <ClInclude Include="MultipleObjects.h">
@@ -347,6 +476,126 @@
     </ClInclude>
     <ClInclude Include="StereoCamera.h">
       <Filter>Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="Directional.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="AreaLight.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="Ambient.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="PointLight.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="Matte.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="RayCast.h">
+      <Filter>Tracers</Filter>
+    </ClInclude>
+    <ClInclude Include="Phong.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="AmbientOccluder.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="Emissive.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="EnvironmentLight.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="AreaLighting.h">
+      <Filter>Tracers</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcaveSphere.h">
+      <Filter>GeometricObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="BBox.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClInclude>
+    <ClInclude Include="Plane.h">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Rectangle.h">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Torus.h">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCylinder.h">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvexPartSphere.h">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Compound.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SolidCylinder.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Disk.h">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="Instance.h">
+      <Filter>GeometricObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="BeveledCylinder.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Grid.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ply.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshTriangle.h">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClInclude>
+    <ClInclude Include="FlatMeshTriangle.h">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClInclude>
+    <ClInclude Include="SmoothMeshTriangle.h">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClInclude>
+    <ClInclude Include="SmoothTriangle.h">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClInclude>
+    <ClInclude Include="Whitted.h">
+      <Filter>Tracers</Filter>
+    </ClInclude>
+    <ClInclude Include="Reflective.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="GlossyReflector.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="PathTrace.h">
+      <Filter>Tracers</Filter>
+    </ClInclude>
+    <ClInclude Include="GlobalTrace.h">
+      <Filter>Tracers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

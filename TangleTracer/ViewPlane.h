@@ -18,6 +18,8 @@ public:
 	
 	Sampler *sampler_ptr;
 	int num_samples;
+
+	int max_depth;
 public:
 
 	ViewPlane();   								// default Constructor
@@ -48,6 +50,9 @@ public:
 
 	void 
 		set_samples(const int count );
+
+	void
+		set_max_depth(const int d);
 };
 
 // ------------------------------------------------------------------------------ set_hres
@@ -88,4 +93,9 @@ inline void
 inline void
 	ViewPlane::set_gamut_display(const bool show) {
 		show_out_of_gamut = show;
+}
+
+inline void
+	ViewPlane::set_max_depth(const int d) {
+		max_depth = d;
 }

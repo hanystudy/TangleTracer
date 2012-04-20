@@ -96,11 +96,14 @@ Pinhole::render_scene(World& w) {
 					pp.y = vp.s * (r - 0.5 * vp.vres + (p + 0.5) / n);
 					ray.d = get_direction(pp);
 					L += w.tracer_ptr->trace_ray(ray, depth);
-				}	
+				}
 											
 			L /= vp.num_samples;
 			L *= exposure_time;
 			w.display_pixel(r, c, L);
+			//if(L.b < 0.1)
+				//int m = 0;
+
 		} 
 }
 

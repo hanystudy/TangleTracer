@@ -112,7 +112,7 @@ rand_float(int l, float h) {
 
 inline int
 rand_int(int l, int h) {
-	return ((int) (rand_float(0, h - l + 1) + l));
+	return ((int) (rand_float(0, h - l) + l));
 }
 
 

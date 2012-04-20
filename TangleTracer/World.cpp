@@ -35,7 +35,9 @@
 World::World(void)
 	:  	background_color(black),
 		tracer_ptr(NULL),
-		eye(200)
+		eye(200),
+		ambient_ptr(new Ambient),
+		max_depth(1)
 {}
 
 
@@ -301,10 +303,33 @@ World::delete_objects(void) {
 	objects.erase (objects.begin(), objects.end());
 }
 
-//------------------------------------------------------------------ only works after chapter 8
+// ----------------------------------------------------------------------------- hit_objects
 
-void
-World::set_camera(Camera* c_ptr)
-{
-	this->camera_ptr = c_ptr;
+ShadeRec									
+World::hit_objects(const Ray& ray) {
+
+	ShadeRec	sr(*this); 
+	double		t;
+	Normal normal;
+	Point3D local_hit_point;
+	float		tmin 			= kHugeValue;
+	int 		num_objects 	= objects.size();
+	
+	for (int j = 0; j < num_objects; j++)
+		if (objects[j]->hit(ray, t, sr) && (t < tmin)) {
+			sr.hit_an_object	= true;
+			tmin 				= t;
+			sr.material_ptr     = objects[j]->get_material();
+			sr.hit_point 		= ray.o + t * ray.d;
+			normal 				= sr.normal;
+			local_hit_point	 	= sr.local_hit_point;
+		}
+  
+	if(sr.hit_an_object) {
+		sr.t = tmin;
+		sr.normal = normal;
+		sr.local_hit_point = local_hit_point;
+	}
+		
+	return(sr);   
 }

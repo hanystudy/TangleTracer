@@ -8,8 +8,11 @@
 #include "Ray.h"
 #include "ShadeRec.h"
 
+#include "BBox.h"
+
 #include "Constants.h"
-					
+
+class Material;
 
 class GeometricObject {	
 	
@@ -40,13 +43,49 @@ class GeometricObject {
 		RGBColor
 		get_color(void);
 
+		// the follwing functions are worked after chapter 14
+
+		Material*						
+		get_material(void) const;
+
+		virtual void 							// needs to virtual so that it can be overriden in Compound
+		set_material(Material* mPtr); 			
 	
+		virtual bool
+		shadow_hit(const Ray& ray, float& tmin) const = 0;
+		
+		virtual void 
+		set_bounding_box(void);
+		
+		virtual BBox 
+		get_bounding_box(void);
+		
+		virtual void 										// required for compound objects
+		add_object(GeometricObject* object_ptr);
+				
+		
+		// The following two functions are only required for objects that are light sources, eg disks, rectangles, and spheres
+		virtual Point3D 		
+		sample(void);
+		
+		virtual float
+		pdf(ShadeRec& sr);
+		// The following two functions allow us to simplify the code for smooth shaded triangle meshes
+		
+		virtual Normal
+		get_normal(void) const; 
+		
+		virtual Normal
+		get_normal(const Point3D& p); 
+
 	protected:
 	
 		RGBColor   color;						// only used for Bare Bones ray tracing
 	
 		GeometricObject&						// assignment operator
 		operator= (const GeometricObject& rhs);
+
+		mutable Material*   material_ptr;   	// mutable allows Compound::hit, Instance::hit and Grid::hit to assign to material_ptr. hit functions are const
 };
 
 
@@ -71,4 +110,12 @@ GeometricObject::set_color(const float r, const float g, const float b) {
 inline RGBColor 
 GeometricObject::get_color(void) {
 	return (color);
+}
+
+
+// ------------------------------------------------------------------------- get_material
+
+inline Material* 
+GeometricObject::get_material(void) const {
+	return (material_ptr);
 }

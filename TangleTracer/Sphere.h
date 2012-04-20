@@ -36,6 +36,8 @@ class Sphere: public GeometricObject {
 						
 		virtual bool 												 
 		hit(const Ray& ray, double& t, ShadeRec& s) const;	
+
+		bool shadow_hit(const Ray& ray, float& tmin) const;
 		
 	private:
 	

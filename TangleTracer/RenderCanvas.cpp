@@ -155,14 +155,14 @@ void RenderCanvas::renderStart(void)
 	//wxGetApp().SetStatusText( wxT( "Rendering..." ) );
 	w->vp.hres = width;
 	w->vp.vres = height;
-	w->vp.set_pixel_size(1.0);
-	w->vp.num_samples = 25;			//only works in chapter 5.6
-	w->vp.set_samples(25);			//works after chapter 5, while you can use function set_sampler but this is easier
+	//w->vp.set_pixel_size(1.0);
+	//w->vp.num_samples = 16;			//only works in chapter 5.6
+	//w->vp.set_samples(16);			//works after chapter 5, while you can use function set_sampler but this is easier
 
 	pixelsRendered = 0;
 	pixelsToRender = w->vp.hres * w->vp.vres;
 
-	m_image = new QImage(w->vp.hres, w->vp.vres,QImage::Format::Format_RGB32);
+	m_image = new QImage(w->vp.hres, w->vp.vres,QImage::Format::Format_RGB888);
 	//set the background
 	//wxBitmap bitmap(w->vp.hres, w->vp.vres, -1);
 	//wxMemoryDC dc;

@@ -9,6 +9,8 @@ class Ray {
 		Point3D			o;  	// origin 
 		Vector3D		d; 		// direction 
 		
+		int depth;
+
 		Ray(void);			
 		
 		Ray(const Point3D& origin, const Vector3D& dir);	

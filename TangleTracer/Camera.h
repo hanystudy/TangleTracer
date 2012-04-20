@@ -56,7 +56,7 @@ class Camera {
 		void
 		set_exposure_time(const float exposure);
 		
-		void									
+		void
 		compute_uvw(void);
 		
 		

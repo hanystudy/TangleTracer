@@ -30,9 +30,11 @@ void RenderThread::Run()
 	//world->render_scene_antialise_regular();	//only works in chapter 4.1
 	//world->render_scene_antialise_random();	//only works in chapter 4.2
 	//world->render_scene_antialise_regular_sampler();	//only works in chapter 5.6
-	world->render_scene_perspective();					//only works in chapter 8.1
+	//world->render_scene_perspective();					//only works in chapter 8.1
+	world->camera_ptr->render_scene(*world);			//works after chapter 14
+
 	if( m_image != NULL)
-		for( vector<RenderPixel*>::const_iterator it = pixels.begin(); it != pixels.end(); it++)
+		for( vector<RenderPixel*>::const_iterator it = pixels.begin(); it != pixels.end(); ++it)
 		{
 			m_image->setPixel((*it)->x,(*it)->y, QColor((*it)->red,(*it)->green,(*it)->blue).rgb());
 		}
