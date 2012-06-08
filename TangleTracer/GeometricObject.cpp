@@ -1,4 +1,10 @@
-// this file contains the definition of the class GeometricObject 
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
+//	this file contains the definition of the class GeometricObject 
 
 #include "Constants.h"
 #include "GeometricObject.h"
@@ -88,10 +94,12 @@ GeometricObject::get_normal(const Point3D& p) {
 // ----------------------------------------------------------------------- set_bounding_box
 
 void
-GeometricObject::set_bounding_box (void) {}
+GeometricObject::set_bounding_box (void) {
+
+}
 
 
-// ----------------------------------------------------------------------- set_bounding_box
+// ----------------------------------------------------------------------- get_bounding_box
 
 BBox 
 GeometricObject::get_bounding_box (void) {

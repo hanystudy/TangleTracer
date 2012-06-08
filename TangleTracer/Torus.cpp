@@ -1,12 +1,11 @@
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
 
-
 #include "Maths.h"	// for SolveQuartic
 #include "Torus.h"
-
 
 // ---------------------------------------------------------------- default constructor
 
@@ -187,7 +186,9 @@ Torus::shadow_hit(const Ray& ray, float& tmin) const
 			
 	for (int j = 0; j < num_real_roots; j++)  
 		if (roots[j] > kEpsilon) {
-			tmin = t;
+			intersected = true;
+			if (roots[j] < t)
+				t = roots[j];
 		}
 		
 	if(!intersected)

@@ -1,4 +1,5 @@
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
@@ -91,5 +92,62 @@ Camera::compute_uvw(void) {
 	}
 }
 
+// ----------------------------------------------------------------- set_roll_angle
 
+void
+Camera::set_roll_angle(const float r) {
 
+	float ra = r * PI_ON_180;
+	//T(1)*R(-1)R(a)R(1)T(-1)
+	Matrix F,T,R,Ra;
+	T.set_identity();
+	R.set_identity();
+	Ra.set_identity();
+	
+	Vector3D q = up;
+	q.normalize();
+	Vector3D w = eye-lookat;
+	w.normalize();
+	Vector3D p = w^q;
+	p.normalize();
+
+	T.m[0][3] = lookat.x;
+	T.m[1][3] = lookat.y;
+	T.m[2][3] = lookat.z;
+	
+	R.m[0][0] = q.x;
+	R.m[1][0] = q.y;
+	R.m[2][0] = q.z;
+	R.m[0][1] = p.x;
+	R.m[1][1] = p.y;
+	R.m[2][1] = p.z;
+	R.m[0][2] = w.x;
+	R.m[1][2] = w.y;
+	R.m[2][2] = w.z;
+
+	Ra.m[0][0] = cos(ra);
+	Ra.m[0][1] = sin(ra);
+	Ra.m[1][0] = -sin(ra);
+	Ra.m[1][1] = cos(ra);
+
+	F = (T*R)*Ra;
+
+	T.m[0][3] = -lookat.x;
+	T.m[1][3] = -lookat.y;
+	T.m[2][3] = -lookat.z;
+	
+	R.m[0][0] = q.x;
+	R.m[0][1] = q.y;
+	R.m[0][2] = q.z;
+	R.m[1][0] = p.x;
+	R.m[1][1] = p.y;
+	R.m[1][2] = p.z;
+	R.m[2][0] = w.x;
+	R.m[2][1] = w.y;
+	R.m[2][2] = w.z;
+
+	F = (F*R)*T;
+
+	up = (F * (eye + up) - eye);
+	up.normalize();
+}

@@ -1,4 +1,5 @@
-// 	Copyright (C) Kevin Suffern 2000-2007.
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
@@ -267,4 +268,10 @@ Box::get_normal(const int face_hit) const {
 		case 4:	return (Normal(0, 1, 0));	// +y face
 		case 5:	return (Normal(0, 0, 1));	// +z face
 	}
+}
+
+BBox
+Box::get_bounding_box(void)	//BBox needed here because Box has been used in Grid 
+{
+	return BBox(x0, x1, y0, y1, z0, z1);
 }

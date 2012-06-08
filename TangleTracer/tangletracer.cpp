@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #include "tangletracer.h"
 
 TangleTracer::TangleTracer(QWidget *parent, Qt::WFlags flags)
@@ -8,6 +14,7 @@ TangleTracer::TangleTracer(QWidget *parent, Qt::WFlags flags)
 	,height(512)
 	,deltatime(0)
 	,deltamem(0)
+	,no(0)
 {
 	setupUi(this);
 	DWORD pid = ::GetCurrentProcessId();
@@ -31,9 +38,27 @@ TangleTracer::TangleTracer(QWidget *parent, Qt::WFlags flags)
 	save = new QAction("save",this);
 	size = new QAction("size",this);
 
+	
+	submenu = new QMenu("demos",this);
+
+	submenuactions = new QActionGroup(this);
+
+	submenuactions->setExclusive(true);
+
+	for(int i = 0; i < MAX_NUM_DEMOS; ++i )
+	{
+		QAction *ac = new QAction(demo[i],this);
+		ac->setCheckable(true);
+		submenuactions->addAction(ac);
+		submenu->addAction(ac);
+		connect(ac,SIGNAL(triggered()),this,SLOT(submenuchecked()));
+	}
+
+	menu->addMenu(submenu);
 	menu->addAction(start);
 	menu->addAction(save);
 	menu->addAction(size);
+	
 	save->setEnabled(false);
 
 	start->setCheckable(false);
@@ -59,7 +84,7 @@ void TangleTracer::render()
 	//mem
 	::GetProcessMemoryInfo(handle,&psmemCounters,sizeof(psmemCounters));
 	deltamem = psmemCounters.WorkingSetSize / 1000;
-	canvas->renderStart();
+	canvas->renderStart(no);
 	deltatime = QDateTime::currentMSecsSinceEpoch() - time;
 	::GetProcessMemoryInfo(handle,&psmemCounters,sizeof(psmemCounters));
 	deltamem = psmemCounters.WorkingSetSize / 1000 - deltamem;
@@ -128,4 +153,17 @@ void TangleTracer::print()
 	p.drawText(width+10,20,"Render time: "+QString::number(deltatime)+" ms");
 	p.drawText(width+10,40,"Render workset size: "+QString::number(deltamem)+" KB");
 	p.end();
+}
+
+void TangleTracer::submenuchecked()
+{
+	QAction *p = submenuactions->checkedAction();
+	for(int i = 0 ; i < MAX_NUM_DEMOS; ++i )
+	{
+		if( p->text() == demo[i] )
+		{
+			no = i;
+			return;
+		}
+	}
 }

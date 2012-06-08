@@ -1,8 +1,8 @@
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
-
 
 #include "Matte.h"
 
@@ -13,7 +13,8 @@
 Matte::Matte (void)
 	:	Material(),
 		ambient_brdf(new Lambertian),
-		diffuse_brdf(new Lambertian)
+		diffuse_brdf(new Lambertian),
+		shadows(true)
 {
 	//ambient_brdf->set_sampler(new MultiJittered(16));
 	//diffuse_brdf->set_sampler(new MultiJittered(16));
@@ -24,7 +25,8 @@ Matte::Matte (void)
 // ---------------------------------------------------------------- copy constructor
 
 Matte::Matte(const Matte& m)
-	: 	Material(m)
+	: 	Material(m),
+		shadows(m.shadows)
 {
 	if(m.ambient_brdf)
 		ambient_brdf = m.ambient_brdf->clone(); 
@@ -68,6 +70,8 @@ Matte::operator= (const Matte& rhs) {
 
 	if (rhs.diffuse_brdf)
 		diffuse_brdf = rhs.diffuse_brdf->clone();
+
+	shadows = rhs.shadows;
 
 	return (*this);
 }
@@ -117,15 +121,22 @@ Matte::shade(ShadeRec& sr) {
 		float 		ndotwi 	= sr.normal * wi;
 
 		if (ndotwi > 0.0) {
-			bool in_shadow = false;
+			if(shadows)
+			{
+				bool in_shadow = false;
 
-			if (sr.w.lights[j]->casts_shadows()) {
-				Ray shadowRay(sr.hit_point, wi);
-				in_shadow = sr.w.lights[j]->in_shadow(shadowRay, sr);
+				if (sr.w.lights[j]->casts_shadows()) {
+					Ray shadowRay(sr.hit_point, wi);
+					in_shadow = sr.w.lights[j]->in_shadow(shadowRay, sr);
+				}
+
+				if ( shadows && !in_shadow) 
+					L += diffuse_brdf->f(sr, wo, wi) * sr.w.lights[j]->L(sr) * ndotwi;
 			}
-
-			if (!in_shadow) 
+			else
+			{
 				L += diffuse_brdf->f(sr, wo, wi) * sr.w.lights[j]->L(sr) * ndotwi;
+			}
 		}
 	}
 	return (L);
@@ -156,18 +167,25 @@ Matte::area_light_shade(ShadeRec& sr)
 		float 		ndotwi 	= sr.normal * wi;
 	
 		if (ndotwi > 0.0) {
-			bool in_shadow = false;
+			if(shadows)
+			{
+				bool in_shadow = false;
 	
-			if (sr.w.lights[j]->casts_shadows()) {
-				Ray shadow_ray(sr.hit_point, wi);
-				in_shadow = sr.w.lights[j]->in_shadow(shadow_ray, sr); 
+				if (sr.w.lights[j]->casts_shadows()) {
+					Ray shadow_ray(sr.hit_point, wi);
+					in_shadow = sr.w.lights[j]->in_shadow(shadow_ray, sr); 
+				}
+	
+				if ( shadows && !in_shadow) 
+					L += diffuse_brdf->f(sr, wo, wi) * sr.w.lights[j]->L(sr) * sr.w.lights[j]->G(sr) * ndotwi / sr.w.lights[j]->pdf(sr);
 			}
-	
-			if (!in_shadow) 
+			else
+			{
 				L += diffuse_brdf->f(sr, wo, wi) * sr.w.lights[j]->L(sr) * sr.w.lights[j]->G(sr) * ndotwi / sr.w.lights[j]->pdf(sr);
+			}
 		}
 	}
-	
+	//L += fr * sr.w.tracer_ptr->trace_ray(reflected_ray, sr.depth + 1) * (sr.normal * wi);
 	return (L);
 }
 

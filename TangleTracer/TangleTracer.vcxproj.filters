@@ -60,9 +60,6 @@
     <Filter Include="Cameras">
       <UniqueIdentifier>{8d8710b0-4c91-4f25-9c17-589a95f496ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Lights">
-      <UniqueIdentifier>{4c4362e6-3235-4e82-8090-5af5c03fb9df}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Materials">
       <UniqueIdentifier>{f7ae0240-f190-40b5-bbf7-dcd80775917e}</UniqueIdentifier>
     </Filter>
@@ -77,6 +74,21 @@
     </Filter>
     <Filter Include="GeometricObjects\Compound Objects">
       <UniqueIdentifier>{a2e1369f-ae5d-4953-9afc-cc13f20c0bea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BTDFs">
+      <UniqueIdentifier>{30f653e6-480d-44ca-8fa6-670d40200cad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Textures">
+      <UniqueIdentifier>{acb803de-6af6-4e44-94fc-98f8be9d338c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mappings">
+      <UniqueIdentifier>{83d37ce4-0024-45c9-acd4-11e1dd129ed9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Textures NoiseBased">
+      <UniqueIdentifier>{413f7499-5f43-494a-b86a-e5b2e4dc4d13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lights">
+      <UniqueIdentifier>{4c4362e6-3235-4e82-8090-5af5c03fb9df}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -121,15 +133,6 @@
     </ClCompile>
     <ClCompile Include="Vector3D.cpp">
       <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="BuildBBCoverPic.cpp">
-      <Filter>Build</Filter>
-    </ClCompile>
-    <ClCompile Include="BuildMultipleObjects.cpp">
-      <Filter>Build</Filter>
-    </ClCompile>
-    <ClCompile Include="BuildSingleSphere.cpp">
-      <Filter>Build</Filter>
     </ClCompile>
     <ClCompile Include="GeometricObject.cpp">
       <Filter>GeometricObjects</Filter>
@@ -257,9 +260,6 @@
     <ClCompile Include="AreaLighting.cpp">
       <Filter>Tracers</Filter>
     </ClCompile>
-    <ClCompile Include="ConcaveSphere.cpp">
-      <Filter>GeometricObjects</Filter>
-    </ClCompile>
     <ClCompile Include="BBox.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
@@ -340,6 +340,255 @@
     </ClCompile>
     <ClCompile Include="GlobalTrace.cpp">
       <Filter>Tracers</Filter>
+    </ClCompile>
+    <ClCompile Include="BTDF.cpp">
+      <Filter>BTDFs</Filter>
+    </ClCompile>
+    <ClCompile Include="PerfectTransmitter.cpp">
+      <Filter>BTDFs</Filter>
+    </ClCompile>
+    <ClCompile Include="Transparent.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="Dielectric.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="FresnelReflector.cpp">
+      <Filter>BRDFs</Filter>
+    </ClCompile>
+    <ClCompile Include="FresnelTransmitter.cpp">
+      <Filter>BTDFs</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcaveLens.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="CutFace.cpp">
+      <Filter>GeometricObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="FishBowl.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="GlassOfWater.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="ConstantColor.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="SV_Lambertian.cpp">
+      <Filter>BRDFs</Filter>
+    </ClCompile>
+    <ClCompile Include="SV_Matte.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageTexture.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="Mapping.cpp">
+      <Filter>Mappings</Filter>
+    </ClCompile>
+    <ClCompile Include="SphericalMap.cpp">
+      <Filter>Mappings</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangularMap.cpp">
+      <Filter>Mappings</Filter>
+    </ClCompile>
+    <ClCompile Include="CylindericalMap.cpp">
+      <Filter>Mappings</Filter>
+    </ClCompile>
+    <ClCompile Include="LightProbeMap.cpp">
+      <Filter>Mappings</Filter>
+    </ClCompile>
+    <ClCompile Include="SmoothUVMeshTriangle.cpp">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClCompile>
+    <ClCompile Include="FlatUVMeshTriangle.cpp">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClCompile>
+    <ClCompile Include="Checker3D.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereChecker.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaneChecker.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="TInstance.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="LatticeNoise.cpp">
+      <Filter>Textures NoiseBased</Filter>
+    </ClCompile>
+    <ClCompile Include="LinearNoise.cpp">
+      <Filter>Textures NoiseBased</Filter>
+    </ClCompile>
+    <ClCompile Include="CubicNoise.cpp">
+      <Filter>Textures NoiseBased</Filter>
+    </ClCompile>
+    <ClCompile Include="FBmTexture.cpp">
+      <Filter>Textures NoiseBased</Filter>
+    </ClCompile>
+    <ClCompile Include="RampFBmTexture.cpp">
+      <Filter>Textures NoiseBased</Filter>
+    </ClCompile>
+    <ClCompile Include="WrappedFBmTexture.cpp">
+      <Filter>Textures NoiseBased</Filter>
+    </ClCompile>
+    <ClCompile Include="WrappedTwoColors.cpp">
+      <Filter>Textures NoiseBased</Filter>
+    </ClCompile>
+    <ClCompile Include="Wood.cpp">
+      <Filter>Textures NoiseBased</Filter>
+    </ClCompile>
+    <ClCompile Include="SV_Phong.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="SV_GlossySpecular.cpp">
+      <Filter>BRDFs</Filter>
+    </ClCompile>
+    <ClCompile Include="Build.cpp">
+      <Filter>Build</Filter>
+    </ClCompile>
+    <ClCompile Include="Orthographic.cpp">
+      <Filter>Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="WireframeBox.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvexPartCylinder.cpp">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenPartCylinder.cpp">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="JitteredDirectional.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcaveSphere.cpp">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcaveHemisphere.cpp">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="FakeSphericalLight.cpp">
+      <Filter>Lights</Filter>
+    </ClCompile>
+    <ClCompile Include="FirstHit.cpp">
+      <Filter>Tracers</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenCone.cpp">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="ConeChecker.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="Annulus.cpp">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="FlatRimmedBowl.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcavePartSphere.cpp">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="RoundRimmedBowl.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ThickRing.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="BeveledRing.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="BeveledBox.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="BeveledWedge.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="SV_Emissive.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereMaterials.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="SolidCone.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="SV_GlossyReflector.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcavePartCylinder.cpp">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="BeveledBoxShell.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvexOpenCylinder.cpp">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClCompile>
+    <ClCompile Include="ConcavePartTorus.cpp">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ConvexPartTorus.cpp">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="HemisphericalMap.cpp">
+      <Filter>Mappings</Filter>
+    </ClCompile>
+    <ClCompile Include="ProductJar.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="CutCube.cpp">
+      <Filter>GeometricObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="CylinderChecker.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="DiskChecker.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="RectangleChecker.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="TurbulenceTexture.cpp">
+      <Filter>Textures NoiseBased</Filter>
+    </ClCompile>
+    <ClCompile Include="SphereTextures.cpp">
+      <Filter>Textures</Filter>
+    </ClCompile>
+    <ClCompile Include="WrappedThreeColors.cpp">
+      <Filter>Textures NoiseBased</Filter>
+    </ClCompile>
+    <ClCompile Include="NestedNoisesTexture.cpp">
+      <Filter>Textures NoiseBased</Filter>
+    </ClCompile>
+    <ClCompile Include="WrappedRamp.cpp">
+      <Filter>Textures NoiseBased</Filter>
+    </ClCompile>
+    <ClCompile Include="PartAnnulus.cpp">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Rosette.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Archway.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="AnotherRosette.cpp">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="SV_Reflector.cpp">
+      <Filter>Materials</Filter>
+    </ClCompile>
+    <ClCompile Include="SV_PerfectSpecular.cpp">
+      <Filter>BRDFs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -516,9 +765,6 @@
     <ClInclude Include="AreaLighting.h">
       <Filter>Tracers</Filter>
     </ClInclude>
-    <ClInclude Include="ConcaveSphere.h">
-      <Filter>GeometricObjects</Filter>
-    </ClInclude>
     <ClInclude Include="BBox.h">
       <Filter>Utilities</Filter>
     </ClInclude>
@@ -596,6 +842,252 @@
     </ClInclude>
     <ClInclude Include="GlobalTrace.h">
       <Filter>Tracers</Filter>
+    </ClInclude>
+    <ClInclude Include="BTDF.h">
+      <Filter>BTDFs</Filter>
+    </ClInclude>
+    <ClInclude Include="PerfectTransmitter.h">
+      <Filter>BTDFs</Filter>
+    </ClInclude>
+    <ClInclude Include="Transparent.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="Dielectric.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="FresnelReflector.h">
+      <Filter>BRDFs</Filter>
+    </ClInclude>
+    <ClInclude Include="FresnelTransmitter.h">
+      <Filter>BTDFs</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcaveLens.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="CutFace.h">
+      <Filter>GeometricObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="FishBowl.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="GlassOfWater.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="ConstantColor.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="SV_Lambertian.h">
+      <Filter>BRDFs</Filter>
+    </ClInclude>
+    <ClInclude Include="SV_Matte.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageTexture.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="Mapping.h">
+      <Filter>Mappings</Filter>
+    </ClInclude>
+    <ClInclude Include="SphericalMap.h">
+      <Filter>Mappings</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangularMap.h">
+      <Filter>Mappings</Filter>
+    </ClInclude>
+    <ClInclude Include="CylindericalMap.h">
+      <Filter>Mappings</Filter>
+    </ClInclude>
+    <ClInclude Include="LightProbeMap.h">
+      <Filter>Mappings</Filter>
+    </ClInclude>
+    <ClInclude Include="SmoothUVMeshTriangle.h">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClInclude>
+    <ClInclude Include="FlatUVMeshTriangle.h">
+      <Filter>GeometricObjects\Triangles</Filter>
+    </ClInclude>
+    <ClInclude Include="Checker3D.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereChecker.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaneChecker.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="TInstance.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="LatticeNoise.h">
+      <Filter>Textures NoiseBased</Filter>
+    </ClInclude>
+    <ClInclude Include="LinearNoise.h">
+      <Filter>Textures NoiseBased</Filter>
+    </ClInclude>
+    <ClInclude Include="CubicNoise.h">
+      <Filter>Textures NoiseBased</Filter>
+    </ClInclude>
+    <ClInclude Include="FBmTexture.h">
+      <Filter>Textures NoiseBased</Filter>
+    </ClInclude>
+    <ClInclude Include="RampFBmTexture.h">
+      <Filter>Textures NoiseBased</Filter>
+    </ClInclude>
+    <ClInclude Include="WrappedFBmTexture.h">
+      <Filter>Textures NoiseBased</Filter>
+    </ClInclude>
+    <ClInclude Include="WrappedTwoColors.h">
+      <Filter>Textures NoiseBased</Filter>
+    </ClInclude>
+    <ClInclude Include="Wood.h">
+      <Filter>Textures NoiseBased</Filter>
+    </ClInclude>
+    <ClInclude Include="SV_Phong.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="SV_GlossySpecular.h">
+      <Filter>BRDFs</Filter>
+    </ClInclude>
+    <ClInclude Include="Orthographic.h">
+      <Filter>Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="WireframeBox.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvexPartCylinder.h">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenPartCylinder.h">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="JitteredDirectional.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcaveSphere.h">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcaveHemisphere.h">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="FakeSphericalLight.h">
+      <Filter>Lights</Filter>
+    </ClInclude>
+    <ClInclude Include="FirstHit.h">
+      <Filter>Tracers</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenCone.h">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="ConeChecker.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="Annulus.h">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="FlatRimmedBowl.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcavePartSphere.h">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="RoundRimmedBowl.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ThickRing.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="BeveledRing.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="BeveledBox.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="BeveledWedge.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SV_Emissive.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereMaterials.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="SolidCone.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SV_GlossyReflector.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcavePartCylinder.h">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="BeveledBoxShell.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvexOpenCylinder.h">
+      <Filter>GeometricObjects\Primitives</Filter>
+    </ClInclude>
+    <ClInclude Include="ConcavePartTorus.h">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ConvexPartTorus.h">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="HemisphericalMap.h">
+      <Filter>Mappings</Filter>
+    </ClInclude>
+    <ClInclude Include="ProductJar.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="CutCube.h">
+      <Filter>GeometricObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="CylinderChecker.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="DiskChecker.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="RectangleChecker.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="TurbulenceTexture.h">
+      <Filter>Textures NoiseBased</Filter>
+    </ClInclude>
+    <ClInclude Include="SphereTextures.h">
+      <Filter>Textures</Filter>
+    </ClInclude>
+    <ClInclude Include="WrappedThreeColors.h">
+      <Filter>Textures NoiseBased</Filter>
+    </ClInclude>
+    <ClInclude Include="NestedNoisesTexture.h">
+      <Filter>Textures NoiseBased</Filter>
+    </ClInclude>
+    <ClInclude Include="WrappedRamp.h">
+      <Filter>Textures NoiseBased</Filter>
+    </ClInclude>
+    <ClInclude Include="PartAnnulus.h">
+      <Filter>GeometricObjects\Part Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Rosette.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Archway.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="AnotherRosette.h">
+      <Filter>GeometricObjects\Compound Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="SV_Reflector.h">
+      <Filter>Materials</Filter>
+    </ClInclude>
+    <ClInclude Include="SV_PerfectSpecular.h">
+      <Filter>BRDFs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

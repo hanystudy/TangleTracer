@@ -1,7 +1,13 @@
-#pragma once
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 
 // this file contains the declaration of the class ShadeRec
 
+#pragma once
 class Material;
 class World;	// only need a forward class declaration as the World data member is a reference
 
@@ -28,4 +34,7 @@ class ShadeRec {
 		ShadeRec(World& wr);				// constructor
 		
 		ShadeRec(const ShadeRec& sr);		// copy constructor
+
+		float u;	//new for chapter 29
+		float v;
 };

@@ -1,4 +1,5 @@
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
@@ -250,6 +251,28 @@ Sampler::map_samples_to_sphere(void) {
 	}
 }
 
+// ------------------------------------------------------------------- sample_unit_square
+// the original version in Listing 5.7
+
+/*
+Point2D
+Sampler::sample_unit_square(void) {
+	return (samples[count++ % (num_samples * num_sets)]);
+}
+*/
+
+// ------------------------------------------------------------------- sample_unit_square
+// the first revised version in Listing in Listing 5.8
+
+/*
+Point2D
+Sampler::sample_unit_square(void) {
+	if (count % num_samples == 0)  									// start of a new pixel
+		jump = (rand_int() % num_sets) * num_samples;				// random index jump initialised to zero in constructor
+	
+	return (samples[jump + count++ % num_samples]);	
+}
+*/
 
 // ------------------------------------------------------------------- sample_unit_square
 // the final version in Listing 5.13
@@ -261,40 +284,6 @@ Sampler::sample_unit_square(void) {
 
 	return (samples[jump + shuffled_indices[jump + count++ % num_samples]]);  
 }
-
-
-
-
-/*
-
-// ------------------------------------------------------------------- sample_unit_square
-// the first revised version in Listing in Listing 5.8
-
-Point2D
-Sampler::sample_unit_square(void) {
-	if (count % num_samples == 0)  									// start of a new pixel
-		jump = (rand_int() % num_sets) * num_samples;				// random index jump initialised to zero in constructor
-	
-	return (samples[jump + count++ % num_samples]);	
-}
-
-*/
-
-
-
-/*
-
-// ------------------------------------------------------------------- sample_unit_square
-// the original version in Listing 5.7
-
-Point2D
-Sampler::sample_unit_square(void) {
-	return (samples[count++ % (num_samples * num_sets)]);
-}
-
-*/
-
-
 
 // ------------------------------------------------------------------- sample_unit_disk
 

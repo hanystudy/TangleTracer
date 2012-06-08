@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #include "ThinLens.h"
 
 #include "World.h"
@@ -7,7 +13,8 @@
 ThinLens::ThinLens(void)		
 	:	Camera(),
 		d(500),
-		zoom(1.0)
+		zoom(1.0),
+		sampler_ptr(NULL)
 {}
 
 
@@ -16,7 +23,8 @@ ThinLens::ThinLens(void)
 ThinLens::ThinLens(const ThinLens& c)   		
 	: 	Camera(c),
 		d(c.d),
-		zoom(c.zoom)
+		zoom(c.zoom),
+		sampler_ptr(c.sampler_ptr)
 {}
 
 
@@ -40,6 +48,7 @@ ThinLens::operator= (const ThinLens& rhs) {
 
 	d 		= rhs.d;
 	zoom	= rhs.zoom;
+	sampler_ptr = rhs.sampler_ptr;
 
 	return (*this);
 }
@@ -116,5 +125,44 @@ ThinLens::render_scene(World& w) {
 			L /= vp.num_samples;
 			L *= exposure_time;	
 			w.display_pixel(r, c, L);
+		}
+}
+
+void						
+ThinLens::render_stereo(World& w, float x, int pixel_offset) {
+	
+	RGBColor	L;	 	
+	Ray			ray;
+	ViewPlane	vp(w.vp);
+	int 		depth 		= 0;					
+
+	Point2D sp;			// sample point in [0, 1] X [0, 1]
+	Point2D pp;			// sample point on a pixel
+	Point2D dp; 		// sample point on unit disk
+	Point2D lp;			// sample point on lens
+	
+	//w.open_window(vp.hres, vp.vres);
+	vp.s /= zoom;  
+					
+	for (int r = 0; r < vp.vres; r++)			// up
+		for (int c = 0; c < vp.hres; c++) {		// across 
+			L = black;
+			
+			for (int n = 0; n < vp.num_samples; n++) {
+				sp = vp.sampler_ptr->sample_unit_square();			
+				pp.x = vp.s * (c - vp.hres / 2.0 + sp.x);
+				pp.y = vp.s * (r - vp.vres / 2.0 + sp.y);
+				
+				dp = sampler_ptr->sample_unit_disk();
+				lp = dp * lens_radius;
+				
+				ray.o = eye + lp.x * u + lp.y * v;
+				ray.d = ray_direction(pp, lp);
+				L += w.tracer_ptr->trace_ray(ray, depth);
+			}
+										
+			L /= vp.num_samples;
+			L *= exposure_time;	
+			w.display_pixel(r, c + pixel_offset, L);
 		}
 }

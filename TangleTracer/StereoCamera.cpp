@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #include "StereoCamera.h"
 
 #include "World.h"
@@ -45,6 +51,12 @@ StereoCamera::operator= (const StereoCamera& rhs) {
 	left_camera_ptr = rhs.left_camera_ptr;
 	right_camera_ptr = rhs.right_camera_ptr;
 	return (*this);
+}
+
+StereoCamera::StereoCamera(Camera* l, Camera* r)
+{
+	this->left_camera_ptr = l;
+	this->right_camera_ptr = r;
 }
 
 
@@ -124,3 +136,25 @@ StereoCamera::render_scene(World& w) {
 	}
 } 
 
+void						
+StereoCamera::render_stereo(World& w, float x, int pixel_offset) {
+	
+	ViewPlane	vp 		= w.vp;					
+	int 		hres	= vp.hres;
+	int 		vres 	= vp.vres;
+	
+	//w.open_window(2 * hres + pixel_gap, vres);
+						
+	double r = eye.distance(lookat);
+	//double x = r * tan(0.5 * beta * PI_ON_180);  
+		
+	if (viewing_type == parallel) {
+		left_camera_ptr->render_stereo(w, x, 0);						// left view on left
+		right_camera_ptr->render_stereo(w, -x, hres + pixel_gap);   	// right view on right
+	}
+	
+	if (viewing_type == transverse) {
+		right_camera_ptr->render_stereo(w, -x, 0);   					// right view on left
+		left_camera_ptr->render_stereo(w, x, hres + pixel_gap);    		// left view on right
+	}
+}

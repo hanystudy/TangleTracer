@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #include "RenderThread.h"
 
 void RenderThread::setPixel(int x, int y, int red, int green, int blue)
@@ -24,20 +30,45 @@ void RenderThread::NotifyCanvas()
    //canvas->GetEventHandler()->AddPendingEvent(event);
 }
 
-void RenderThread::Run()
+void RenderThread::Run(int no)
 {
-	//world->render_scene();	//works in chapter 1-3
-	//world->render_scene_antialise_regular();	//only works in chapter 4.1
-	//world->render_scene_antialise_random();	//only works in chapter 4.2
-	//world->render_scene_antialise_regular_sampler();	//only works in chapter 5.6
-	//world->render_scene_perspective();					//only works in chapter 8.1
-	world->camera_ptr->render_scene(*world);			//works after chapter 14
+	if(world->objects.size() == 0)
+	{
+		return;
+	}
+	if(no < 3)
+	{
+		world->render_scene();
+		//works for chapter 1-3
+	}
+	else if( no == 3)
+	{
+		world->camera_ptr->render_scene(*world);
+		//only works for chapter 4.1
+	}
+	else if( no == 4)
+	{
+		world->camera_ptr->render_scene(*world);
+		//only works for chapter 4.2
+	}
+	else
+	{
+		world->camera_ptr->render_scene(*world);
+	}
+	//world->render_scene_antialise_regular_sampler();	
+	//only works for chapter 5.6
+	//world->render_scene_perspective();
+	//only works for chapter 8.1
+		//world->camera_ptr->render_scene(*world);
+		//works after chapter 14
 
 	if( m_image != NULL)
+	{
 		for( vector<RenderPixel*>::const_iterator it = pixels.begin(); it != pixels.end(); ++it)
 		{
 			m_image->setPixel((*it)->x,(*it)->y, QColor((*it)->red,(*it)->green,(*it)->blue).rgb());
 		}
+	}
 }
 
 void RenderThread::setImage(QImage *m)

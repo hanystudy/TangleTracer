@@ -1,6 +1,5 @@
-#pragma once
-
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
@@ -10,6 +9,8 @@
 // It is centered on the y axis.
 // The classes ConcaveOpenCylinder and ConvexOpenCylinder can inherit from OpenCylinder.
 // The classes ConcavePartCylinder and ConvexPartCylinder can in turn inherit from these.
+
+#pragma once
 
 #include "GeometricObject.h"
 #include <math.h>

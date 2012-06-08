@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #include "World.h"
 
 #include "World.h"
@@ -23,12 +29,11 @@
 
 // build functions
 
-#include "BuildSingleSphere.cpp"
+//#include "BuildSingleSphere.cpp"
 //#include "BuildMultipleObjects.cpp"
 //#include "BuildBBCoverPic.cpp"
 
 #include "RenderThread.h"
-
 
 // -------------------------------------------------------------------- default constructor
 
@@ -37,10 +42,8 @@ World::World(void)
 		tracer_ptr(NULL),
 		eye(200),
 		ambient_ptr(new Ambient),
-		max_depth(1)
+		max_depth(1)	
 {}
-
-
 
 //------------------------------------------------------------------ destructor
 
@@ -53,7 +56,6 @@ World::~World(void) {
 	
 	delete_objects();	
 }
-
 
 //------------------------------------------------------------------ render_scene
 
@@ -74,13 +76,12 @@ World::render_scene(void) const {
 	ray.d = Vector3D(0, 0, -1);
 	
 	for (int r = 0; r < vres; r++)			// up
-		for (int c = 0; c <= hres; c++) {	// across 					
+		for (int c = 0; c <= hres; c++) {	// across				
 			ray.o = Point3D(s * (c - hres / 2.0 + 0.5), s * (r - vres / 2.0 + 0.5), zw);
 			pixel_color = tracer_ptr->trace_ray(ray);
 			display_pixel(r, c, pixel_color);
 		}	
-}  
-
+}
 
 // edition: chapter 4.1
 
@@ -215,7 +216,6 @@ World::max_to_one(const RGBColor& c) const  {
 		return (c);
 }
 
-
 // ------------------------------------------------------------------ clamp_to_color
 // Set color to red if any component is greater than one
 
@@ -230,7 +230,6 @@ World::clamp_to_color(const RGBColor& raw_color) const {
 	return (c);
 }
 
-
 // ---------------------------------------------------------------------------display_pixel
 
 // raw_color is the pixel color computed by the ray tracer
@@ -241,7 +240,6 @@ World::clamp_to_color(const RGBColor& raw_color) const {
 // a PC's components will probably be in the range [0, 255]
 // the system-dependent code is in the function convert_to_display_color
 // the function SetCPixel is a Mac OS function
-
 
 void
 World::display_pixel(const int row, const int column, const RGBColor& raw_color) const {
@@ -264,8 +262,6 @@ World::display_pixel(const int row, const int column, const RGBColor& raw_color)
                              (int)(mapped_color.b * 255));
 }
 
-
-
 // ----------------------------------------------------------------------------- hit_bare_bones_objects
 
 ShadeRec									
@@ -284,7 +280,6 @@ World::hit_bare_bones_objects(const Ray& ray) {
 		
 	return (sr);   
 }
-
 
 //------------------------------------------------------------------ delete_objects
 

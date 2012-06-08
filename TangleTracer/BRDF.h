@@ -1,6 +1,5 @@
-#pragma once
-
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
@@ -9,7 +8,7 @@
 // we need a sampler here, because even a Matte material needs to call sample_f with a 
 // cosine distribution for path shading. 
 
-//#include <math.h>
+#pragma once
 
 #include "RGBColor.h"
 #include "Vector3D.h"
@@ -46,7 +45,6 @@ public:
 
 	virtual RGBColor
 		rho(const ShadeRec& sr, const Vector3D& wo) const;
-
 
 protected:
 

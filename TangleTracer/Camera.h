@@ -1,16 +1,17 @@
-#pragma once
-
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
 
-
 // This file contains the declaration of the base class Camera
 // There is no view plane distance because the fisheye and panoramic cameras don't use it
 
+#pragma once
+
 #include "Point3D.h"
 #include "Vector3D.h"
+#include "Maths.h"
 
 class World;  // can't #include "World" here because World contains a camera pointer
 
@@ -31,6 +32,9 @@ class Camera {
 
 		virtual void 																		
 		render_scene(World& w) = 0;
+
+		virtual void
+		render_stereo(World& w, float x, int pixel_offset) = 0;
 		
 		void
 		set_eye(const Point3D& p);
@@ -52,6 +56,10 @@ class Camera {
 
 		void
 		set_roll(const float ra);
+
+		//This method appears in 9.11c, it should exploit some tech from chapter 20.6 to implement that
+		void
+		set_roll_angle(const float ra);		
 		
 		void
 		set_exposure_time(const float exposure);

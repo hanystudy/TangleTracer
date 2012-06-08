@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 // this file contains the definition of the class ShadeRec
 
 // there is no default constructor as the World reference always has to be initialised
@@ -20,7 +26,10 @@ ShadeRec::ShadeRec(World& wr)
 		ray(),
 		depth(0),
 		t(0.0),
-		w(wr)
+		w(wr),
+		u(0),
+		v(0),
+		color(black)
 {}
 
 
@@ -35,7 +44,10 @@ ShadeRec::ShadeRec(const ShadeRec& sr)
 		ray(sr.ray),
 		depth(sr.depth),
 		t(sr.t),
-		w(sr.w)
+		w(sr.w),
+		u(sr.u),
+		v(sr.v),
+		color(sr.color)
 {}
 
 

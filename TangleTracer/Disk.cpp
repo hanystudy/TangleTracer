@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #include "Disk.h"
 
 const double Disk::kEpsilon = 0.001;
@@ -8,8 +14,8 @@ Disk::Disk(void)
 	: 	GeometricObject(),
 		center(0.0),
 		normal(0, 1, 0),
-		r(0),
-		r_squared(0),
+		r(1),
+		r_squared(1),
 		sampler_ptr(NULL),
 		shadows(false),
 		area(1),

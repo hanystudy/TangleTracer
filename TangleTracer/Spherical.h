@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #pragma once
 
 #include "Camera.h"
@@ -35,6 +41,9 @@ public:
 	virtual void 												
 		render_scene(World& w);
 
+	virtual void
+		render_stereo(World& w, float x, int pixel_offset);
+
 private:
 
 	float	psi_max;	// in degrees
@@ -44,11 +53,11 @@ private:
 inline void
 Spherical::set_horizontal_fov(const float d)
 {
-	this->lambda_max = d;
+	this->lambda_max = d / 2;
 }
 
 inline void
 Spherical::set_vertical_fov(const float d)
 {
-	this->psi_max = d;
+	this->psi_max = d / 2;
 }

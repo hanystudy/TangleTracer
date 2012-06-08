@@ -1,6 +1,5 @@
-#pragma once
-
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
@@ -10,13 +9,15 @@
 // This uses extra memory but the object to be transformed may be a grid or some other complex object
 // whose bouding box is expensive to compute.
 
+#pragma once
+
 #include "GeometricObject.h"
 #include "Matrix.h"
 
 class Instance: public GeometricObject {	
 	public:
 		
-		Instance(void);   									
+		Instance(void);
 		
 		Instance(GeometricObject* obj_ptr);					
 		
@@ -42,6 +43,9 @@ class Instance: public GeometricObject {
 		
 		virtual BBox 										
 		get_bounding_box(void);					
+
+		virtual void 
+		set_bounding_box(void);		//This function used in chapter 12 page one image, here we add it
 											
 		virtual Material* 									
 		get_material(void) const;  								
@@ -81,6 +85,9 @@ class Instance: public GeometricObject {
 
 		virtual bool
 		shadow_hit(const Ray& ray, float& tmin) const;		
+
+		void
+		set_shadows(bool);
 		
 	private:
 
@@ -89,6 +96,8 @@ class Instance: public GeometricObject {
 		static 	Matrix		forward_matrix; 		// transformation matrix
 		BBox				bbox;					// transformed object's bounding box
 		bool				transform_the_texture;	// do we transform the texture?
+
+		bool shadows;
 			
 
 };

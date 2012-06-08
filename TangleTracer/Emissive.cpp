@@ -1,11 +1,10 @@
-// 	Copyright (C) Kevin Suffern 2000-2007.
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
 
-
 #include "Emissive.h"
-
 
 // ---------------------------------------------------------------- default constructor
 
@@ -45,7 +44,10 @@ Emissive::~Emissive(void)
 
 RGBColor
 Emissive::shade(ShadeRec& sr) {
-	return (black);
+	if (-sr.normal * sr.ray.d > 0.0)		//here may be ConcaveSphere not support
+		return (ls * ce);
+	else
+		return (black);
 }
 
 void
@@ -58,6 +60,12 @@ void
 Emissive::set_ce(const float r, const float g, const float b)
 {
 	ce = RGBColor(r, g, b);
+}
+
+void									
+Emissive::set_ce(RGBColor c)
+{
+	ce = c;
 }
 		
 RGBColor

@@ -1,8 +1,8 @@
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
-
 
 // This file contains the definition of the Pinhole class
 
@@ -103,7 +103,6 @@ Pinhole::render_scene(World& w) {
 			w.display_pixel(r, c, L);
 			//if(L.b < 0.1)
 				//int m = 0;
-
 		} 
 }
 

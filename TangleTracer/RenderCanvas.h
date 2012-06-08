@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #pragma once
 
 #include "stdafx.h"
@@ -14,7 +20,7 @@ public:
 	QImage GetImage(void);
 
 	//virtual void OnDraw(wxDC& dc);
-	void renderStart(void);
+	void renderStart(int);
 	void renderPause(void);
 	void renderResume(void);
 	//void OnRenderCompleted( wxCommandEvent& event );

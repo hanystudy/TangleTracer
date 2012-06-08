@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #include "RayCast.h"
 #include "World.h"
 #include "ShadeRec.h"
@@ -23,6 +29,7 @@ RayCast::~RayCast(void) {}
 
 
 // -------------------------------------------------------------------- trace_ray
+// this ignores the depth argument
 
 RGBColor	
 RayCast::trace_ray(const Ray& ray) const {
@@ -38,7 +45,6 @@ RayCast::trace_ray(const Ray& ray) const {
 
 
 // -------------------------------------------------------------------- trace_ray
-// this ignores the depth argument
 
 RGBColor	
 RayCast::trace_ray(const Ray ray, const int depth) const {
@@ -51,4 +57,3 @@ RayCast::trace_ray(const Ray ray, const int depth) const {
 	else
 		return (world_ptr->background_color);
 }
-

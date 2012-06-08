@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #ifndef TANGLETRACER_H
 #define TANGLETRACER_H
 
@@ -39,12 +45,17 @@ private:
 	QAction *size;
 	QMenu *menu;
 
+	QMenu *submenu;
+
 	qint64 deltatime;
 
 	PROCESS_MEMORY_COUNTERS psmemCounters;
 	HANDLE handle;
 
 	int deltamem;
+	int no;
+
+	QActionGroup *submenuactions;
 protected:
 	virtual void paintEvent(QPaintEvent *);
 	virtual void mouseReleaseEvent(QMouseEvent *event);
@@ -53,6 +64,8 @@ private slots:
 	void startrender();
 	void saveas();
 	void setsize();
+
+	void submenuchecked();
 };
 
 #endif // TANGLETRACER_H

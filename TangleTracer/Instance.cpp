@@ -1,4 +1,5 @@
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
@@ -22,7 +23,8 @@ Instance::Instance(void)
 		object_ptr(NULL),
 		inv_matrix(),
 		bbox(),
-		transform_the_texture(true)
+		transform_the_texture(true),
+		shadows(true)
 {
 	forward_matrix.set_identity();
 }
@@ -34,8 +36,9 @@ Instance::Instance(GeometricObject* obj_ptr)
 	:	GeometricObject(),
 		object_ptr(obj_ptr),
 		inv_matrix(),
-		bbox(),
-		transform_the_texture(true) 
+		bbox(obj_ptr->get_bounding_box()),
+		transform_the_texture(true),
+		shadows(true)
 {
 	forward_matrix.set_identity();
 }	
@@ -46,7 +49,9 @@ Instance::Instance(GeometricObject* obj_ptr)
 Instance::Instance (const Instance& instance)
 	: 	GeometricObject(instance),
 		inv_matrix(instance.inv_matrix),
-		transform_the_texture(instance.transform_the_texture)
+		transform_the_texture(instance.transform_the_texture),
+		shadows(instance.shadows),
+		bbox(instance.bbox)
 {
 	if(instance.object_ptr)
 		object_ptr = instance.object_ptr->clone(); 
@@ -94,6 +99,7 @@ Instance::operator= (const Instance& rhs) {
 	inv_matrix				= rhs.inv_matrix;
 	bbox					= rhs.bbox;
 	transform_the_texture 	= rhs.transform_the_texture;
+	shadows = rhs.shadows;
 	
 	return (*this);
 }
@@ -105,7 +111,6 @@ void
 Instance::set_object(GeometricObject* obj_ptr) {
 	object_ptr = obj_ptr;
 }
-
 
 //---------------------------------------------------------------- set_bounding_box
 // This function is only called when the instance is to be placed in a grid
@@ -239,7 +244,7 @@ Instance::set_material(Material* m_ptr) {
 bool 												 
 Instance::hit(const Ray& ray, double& t, ShadeRec& sr) const {
 	Ray inv_ray(ray);  
-	inv_ray.o = inv_matrix * inv_ray.o;   
+	inv_ray.o = inv_matrix * inv_ray.o;
 	inv_ray.d = inv_matrix * inv_ray.d;
 				
 	if (object_ptr->hit(inv_ray, t, sr)) {
@@ -484,6 +489,9 @@ Instance::shear(const Matrix& s) {
 bool
 Instance::shadow_hit(const Ray& ray, float& tmin) const
 {
+	if(!shadows)
+		return false;
+
 	Ray inv_ray(ray);  
 	inv_ray.o = inv_matrix * inv_ray.o;   
 	inv_ray.d = inv_matrix * inv_ray.d;
@@ -492,4 +500,17 @@ Instance::shadow_hit(const Ray& ray, float& tmin) const
 		return (true);
 	}
 	return (false);   
+}
+
+void
+Instance::set_shadows(bool b)
+{
+	shadows = b;
+}
+
+//In fact its function is same to compute_bounding_box?
+void 
+Instance::set_bounding_box(void)
+{										
+	compute_bounding_box();
 }

@@ -1,8 +1,8 @@
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
-
 
 #include "Constants.h"
 #include "ConvexPartSphere.h"
@@ -140,7 +140,7 @@ ConvexPartSphere::hit(const Ray& ray, double& tmin, ShadeRec& sr) const {
 				hit.y >= radius * cos_theta_max && 	
 				phi >= phi_min && phi <= phi_max) {
 				
-				tmin = t;				
+				tmin = t;
 				sr.normal = (temp + t * ray.d) / radius;   // points outwards
 				sr.local_hit_point = ray.o + tmin * ray.d;				
 				return (true);
@@ -167,7 +167,6 @@ ConvexPartSphere::hit(const Ray& ray, double& tmin, ShadeRec& sr) const {
 			}
 		} 
 	}
-	
 	return (false);
 }
 

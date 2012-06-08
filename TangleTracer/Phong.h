@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #pragma once
 
 #include "stdafx.h"
@@ -64,11 +70,16 @@ class Phong: public Material {
 		virtual RGBColor
 		area_light_shade(ShadeRec& sr);	
 	
+		void
+		set_shadows(bool);
+
 	protected:
 	
 		Lambertian*		ambient_brdf;
 		Lambertian*		diffuse_brdf;
 		GlossySpecular*	specular_brdf;
+
+		bool shadows;
 };
 
 // ---------------------------------------------------------------- set_ka
@@ -151,4 +162,10 @@ Phong::set_cs(const float r, const float g, const float b) {
 inline void													
 Phong::set_cs(const float c) {
 	specular_brdf->set_cs(c);
+}
+
+inline void
+Phong::set_shadows(bool b)
+{
+	this->shadows = b;
 }

@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #include "SolidCylinder.h"
 
 #include "OpenCylinder.h"
@@ -29,7 +35,25 @@ SolidCylinder::SolidCylinder(	const double bottom,
 
 SolidCylinder::SolidCylinder (void)
 	: 	Compound()
-{}
+{
+	//This is new function for chapter 30 for any diffault para solid cylinders. Ex 30.12
+	objects.push_back(new Disk(	Point3D(0, -1, 0), 			// bottom
+								Normal(0, -1, 0), 
+								1));  
+		
+	objects.push_back(new Disk(	Point3D(0, 1, 0), 			// top
+								Normal(0, 1, 0), 
+								1));   	
+		
+	objects.push_back(new OpenCylinder(-1, 1, 1));	// wall
+
+	bbox.x0 = -1;
+	bbox.y0 = -1;
+	bbox.z0 = -1;
+	bbox.x1 = 1;
+	bbox.y1 = 1;
+	bbox.z1 = 1;
+}
 
 
 // ---------------------------------------------------------------- clone
@@ -151,3 +175,9 @@ SolidCylinder::set_wall_material(Material* material_ptr)
 {
 	objects[2]->set_material(material_ptr);
 }//19.29
+
+BBox 
+SolidCylinder::get_bounding_box(void)
+{
+	return bbox;
+}

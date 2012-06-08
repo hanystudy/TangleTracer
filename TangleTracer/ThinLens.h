@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #pragma once
 
 #include "Camera.h"
@@ -45,6 +51,9 @@ public:
 
 	virtual void 												
 		render_scene(World& w);		//Here may need a const to asure the implementation of the same function in Camera class				
+
+	virtual void
+		render_stereo(World& w, float x, int pixel_offset);
 
 private:
 

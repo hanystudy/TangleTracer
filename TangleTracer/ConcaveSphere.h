@@ -1,7 +1,13 @@
-#pragma once
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
 
 // This file contains the declaration of the class ConcaveSphere
 // Notice that this class is not appeared in book or website, I cannot ensure its correctionm, but result image is OK.  
+
+#pragma once
 
 #include "GeometricObject.h"
 

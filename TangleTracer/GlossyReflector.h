@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #pragma once
 
 #include "Phong.h"
@@ -61,13 +67,19 @@ class GlossyReflector: public Phong {
 	
 		void											
 		set_samples(const int num_samples, const float exp);
+
+		void
+		set_sampler(Sampler *samp, const float exp);
 	
 		void
 		set_kr(const float k);
 
 		void
 		set_cr(const float r, const float g, const float b);	//this is new function where doesn't appear in book
-	
+			
+		void 
+		set_cr(const RGBColor r);
+
 		void													
 		set_exponent(const float exp);
 	
@@ -87,7 +99,13 @@ inline void
 GlossyReflector::set_samples(const int num_samples, const float exp) {
 	glossy_specular_brdf->set_samples(num_samples, exp);	
 }
-	
+
+inline void
+GlossyReflector::set_sampler(Sampler *samp, const float exp)
+{
+	glossy_specular_brdf->set_sampler(samp, exp);
+}
+
 inline void
 GlossyReflector::set_kr(const float k) {
 	glossy_specular_brdf->set_ks(k);
@@ -184,4 +202,10 @@ GlossyReflector::set_cs(const float r, const float g, const float b) {
 inline void													
 GlossyReflector::set_cs(const float c) {
 	specular_brdf->set_cs(c);
+}
+
+inline void 
+GlossyReflector::set_cr(const RGBColor r)
+{
+	glossy_specular_brdf->set_cs(r);
 }

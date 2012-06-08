@@ -1,14 +1,14 @@
-#pragma once
-
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
 
-
 // This file contains the declaration of the class ConvexPartSphere
 // This is a part sphere where the surface normal always points outwards
 // If you study the code here you should be able to implement other part objects
+
+#pragma once
 
 #include "GeometricObject.h"
 #include <math.h>

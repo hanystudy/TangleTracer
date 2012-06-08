@@ -1,4 +1,5 @@
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
@@ -96,7 +97,7 @@ FlatMeshTriangle::hit(const Ray& ray, double& tmin, ShadeRec& sr) const {
 					
 	tmin 				= t;
 	sr.normal 			= normal;  				// for flat shading
-	sr.local_hit_point 	= ray.o + t * ray.d;	
+	sr.local_hit_point 	= ray.o + t * ray.d;
 	
 	return (true);	
 }  

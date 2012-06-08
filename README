@@ -1,8 +1,25 @@
-TangleTracer is only an experimental ray tracing platform based on the book named "Ray tracing from the Ground Up" written by kevin suffern. I think this book is the best tortuial for anyone new to ray tracing or CG rendering. Since writer didn't release a complete demo program covers the whole book until now, it may be not easy when we want to run some demos directly.
-Fortunately, most coding materials about the book can be downloaded from the official website http://www.raytracegroundup.com, then what we have to do is just to put them together. 
-It sounds easy, right? In fact it's terrible. Thus I decided to rebuild all parts of this project, the final one should be able to run all examples on the original book at least. Furthermore, the new project must be flexible enough to the cutting-edge like rendering techniques.
+TangleTracer(Basic Edition/B) 1.0 beta README
+
+TangleTracer is an experimental ray tracing platform based on the classic book named "Ray tracing from the Ground Up" written by kevin suffern in 2007. I think this book is the best tortuial for anyone new to ray tracing or even expressive CG rendering. Since the writer kevin didn't release complete demo program covers whole book until now, it may be uneasy when we want to run some demos directly.
+
+Fortunately, there already are many coding materials related to this book, and all can be downloaded on the official website http://www.raytracegroundup.com, then what we have to do is just to put them together. 
+
+It sounds easy, right? In fact it's a little terrible, for me at least. Thus I decided to rebuild all parts of this project, the final one should be able to run all examples on the original book. including excercises in the end of each chapter. Furthermore, the new project should be flexible enough to integerate with cutting-edge like rendering techniques.
+
 The original code used wxwidget as its GUI, which I'm not familiar to. For saving time I used Qt framework instead of Wx as GUI interface. Is it Ok without GUI programming? Answer is obvious YES at current stage. However, an intuitive user interface is comfortable to use and understand. Thus it's necessary to be compiled with Qt framework. I use Qt4.7.3 compiled under the Visual Studio 2010, a Visual Studio Add-in for Qt is also required, you can get them on Qt's official website.
 Certainly you can extract any code from this project just like what I have done for Kevin Suffern:) just whenever and whatever you need. I'm sure it's very easy to do that.
 
 This project is based on the code from Kevin Suffern, and revised by mp77. I have test all of them before they were push to Git. Some original statements can't pass compiling when I perform testing, and I have tried to make them repaired, but I can't ensure all are correct logically. At least they can pass the compiling and looks not too bad~
-The code under this project is licensed under the GNU General Public License Version 2. See the file COPYING.txt for the full license.
+
+The code of this project is licensed under the GNU General Public License Version 2. See the file COPYING.txt for the full license.
+
+===============================================
+Version Basic/B, 1.0 beta
+
+This edition concludes whole framework of this system, and about 440 demos or excercises from every chapters. I've test them all, most of them are pretty but running a little slow. Serveral examples rendered doesn't look like the sample image, such as 29.01, 29.02. The original code of 21.06a and 21.11a seems not work compared with sample image, I implemented them by myself but comment all in source code files, you can try to rebuild the whole project to see what is different between those two.
+Many excercises needs resource files including ppm textures and ply models, most of them can be downloaded from the official website of the book. If you only want to run application directly, you have to put those resource files in the same directory with binary program. 
+The directory prefix is defined in Build.cpp, which can be like this:
+QString ppmfile = ".\\TextureFiles\\ppm\\";
+QString plyfile = ".\\PLYFiles\\";
+A problem about ply model file is the ascii text format difference between UNIX/WINDOWS, I have converted the text format to Windows style, you may have a crash when running with the original ply files. 
+Another problem is about the ply file "dragon.ply", application will crash when process this model file. I downloaded the original one from stanford.edu and it's resovled, you may have a try, but rename the new model "dragon_vrip.ply".

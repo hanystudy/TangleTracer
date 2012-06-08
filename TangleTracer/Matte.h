@@ -1,10 +1,10 @@
-#pragma once
-
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
 
+#pragma once
 
 #include "Material.h"
 #include "Lambertian.h"
@@ -48,7 +48,7 @@ class Matte: public Material {
 		set_ce(const float r, const float g, const float b);
 		
 		virtual RGBColor
-		get_Le(ShadeRec& sr) const;;	
+		get_Le(ShadeRec& sr) const;
 	
 		virtual RGBColor
 		area_light_shade(ShadeRec& sr);	
@@ -61,11 +61,16 @@ class Matte: public Material {
 
 		virtual void
 		set_sampler(Sampler* sPtr);
+
+		void
+		set_shadows(bool);
+
 	private:
 		
 		Lambertian*		ambient_brdf;
 		Lambertian*		diffuse_brdf;
 
+		bool shadows;
 		//float		ls;		// radiance scaling factor						 
 		//RGBColor 	ce;		// color
 };
@@ -114,4 +119,10 @@ inline void
 Matte::set_cd(const float c) {
 	ambient_brdf->set_cd(c);
 	diffuse_brdf->set_cd(c);
+}
+
+inline void
+Matte::set_shadows(bool b)
+{
+	this->shadows = b;
 }

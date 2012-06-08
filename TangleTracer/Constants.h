@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #pragma once
 
 #include <stdlib.h>
@@ -9,11 +15,17 @@ const double 	PI_ON_180 	= 0.0174532925199432957;
 const double 	invPI 		= 0.3183098861837906715;
 const double 	invTWO_PI 	= 0.1591549430918953358;
 
+const double	EE			= 2.7182818284590452354;
+const double	invEE		= 0.3678794411714423216;
+
 const double 	kEpsilon 	= 0.0001;
 const double	kHugeValue	= 1.0E10;
 
 const RGBColor	black(0.0);
 const RGBColor	white(1.0);
 const RGBColor	red(1.0, 0.0, 0.0);
+const RGBColor  yellow(1.0,1.0,0);
+const RGBColor  green(0,1.0,0);
+const RGBColor  blue(0,0,1);
 
-const float 	invRAND_MAX = 1.0 / (float)RAND_MAX;
+const float invRAND_MAX = 1.0 / (float)RAND_MAX;

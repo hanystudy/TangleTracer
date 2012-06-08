@@ -1,4 +1,8 @@
-#pragma once
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
 
 // This file contains the declaration of the class World
 // The World class does not have a copy constructor or an assignment operator, for the followign reasons:
@@ -8,6 +12,8 @@
 // 3 	These operations wouldn't work because the world is self-referencing:
 //	 	the Tracer base class contains a pointer to the world. If we wrote a correct copy constructor for the 
 // 	  	Tracer class, the World copy construtor would call itself recursively until we ran out of memory. 
+
+#pragma once
 
 
 #include <vector>
@@ -59,7 +65,7 @@ public:
 		add_object(GeometricObject* object_ptr);
 
 	void 					
-		build(void);
+		build(int);
 
 	void 												
 		render_scene(void) const;

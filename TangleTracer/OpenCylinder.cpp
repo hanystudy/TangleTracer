@@ -1,4 +1,5 @@
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
@@ -161,7 +162,7 @@ OpenCylinder::hit(const Ray& ray, double& tmin, ShadeRec& sr) const {
 			if (yhit > y0 && yhit < y1) {
 				tmin = t;
 				sr.normal = Normal((ox + t * dx) * inv_radius, 0.0, (oz + t * dz) * inv_radius);
-				
+				sr.normal.normalize();
 				// test for hitting from inside
 			
 				if (-ray.d * sr.normal < 0.0)
@@ -181,7 +182,7 @@ OpenCylinder::hit(const Ray& ray, double& tmin, ShadeRec& sr) const {
 			if (yhit > y0 && yhit < y1) {
 				tmin = t;
 				sr.normal = Normal((ox + t * dx) * inv_radius, 0.0, (oz + t * dz) * inv_radius);
-				
+				sr.normal.normalize();
 				// test for hitting inside surface
 			
 				if (-ray.d * sr.normal < 0.0)

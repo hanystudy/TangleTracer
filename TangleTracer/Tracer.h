@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 // This is the declaration of the base class Tracer
 // The tracer classes have no copy constructor, assignment operator. or clone function because 
 // of the world pointer, which should not be assigned or copy constructed
@@ -26,6 +32,9 @@ class Tracer {
 
 		virtual RGBColor	
 		trace_ray(const Ray ray, const int depth) const;
+
+		virtual RGBColor	
+		trace_ray(const Ray ray, double &t, const int depth) const;
 				
 	protected:
 	

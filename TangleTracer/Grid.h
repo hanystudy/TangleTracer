@@ -1,6 +1,5 @@
-#pragma once
-
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
@@ -17,6 +16,7 @@
 // This Grid class is also way too large. All the triangle and PLY file code should be placed in
 // a separate class called TriangleMesh that inherits from Grid.
 
+#pragma once
 
 #include "Compound.h"
 #include "ShadeRec.h"
@@ -77,6 +77,16 @@ class Grid: public Compound {
 		// new function
 		virtual bool 																						 
 		shadow_hit(const Ray& ray, float& tmin) const;
+
+		// new for chapter 29
+		void												
+		read_flat_uv_triangles(char* file_name);
+
+		void												
+		read_smooth_uv_triangles(char* file_name);
+
+		void
+		read_uv_ply_file(char* file_name, const int triangle_type);
 
 	private: 
 

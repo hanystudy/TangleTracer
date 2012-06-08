@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #include "RenderCanvas.h"
 
 RenderCanvas::RenderCanvas()
@@ -144,13 +150,13 @@ void RenderCanvas::OnTimerUpdate( wxTimerEvent& event )
       wxGetApp().SetStatusText( timeString, 1);
 }*/
 
-void RenderCanvas::renderStart(void)
+void RenderCanvas::renderStart(int no)
 {
 	w = new World();
 
 	//wxGetApp().SetStatusText( wxT( "Building world..." ) );
 
-	w->build();
+	w->build(no);
 
 	//wxGetApp().SetStatusText( wxT( "Rendering..." ) );
 	w->vp.hres = width;
@@ -193,7 +199,7 @@ void RenderCanvas::renderStart(void)
 	thread->setImage(m_image);
 	w->paintArea = thread;
 
-	thread->Run();
+	thread->Run(no);
 }
 
 void RenderCanvas::SetSize(int w ,int h)

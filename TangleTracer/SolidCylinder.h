@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #pragma once
 
 #include "Compound.h"
@@ -38,6 +44,9 @@ class SolidCylinder: public Compound {
 
 		virtual void 
 		set_wall_material(Material* material_ptr);	//19.29
+
+		virtual BBox 
+		get_bounding_box(void);
 		
 	private:
 	

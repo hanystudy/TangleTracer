@@ -1,8 +1,8 @@
 // 	Copyright (C) Kevin Suffern 2000-2007.
+//	Revised by mp77 at 2012
 //	This C++ code is for non-commercial purposes only.
 //	This C++ code is licensed under the GNU General Public License Version 2.
 //	See the file COPYING.txt for the full license.
-
 
 #include "Phong.h"
 
@@ -12,7 +12,8 @@ Phong::Phong (void)
 	:	Material(),
 		ambient_brdf(new Lambertian),
 		diffuse_brdf(new Lambertian),
-		specular_brdf(new GlossySpecular)
+		specular_brdf(new GlossySpecular),
+		shadows(true)
 {}
 
 
@@ -20,7 +21,8 @@ Phong::Phong (void)
 // ---------------------------------------------------------------- copy constructor
 
 Phong::Phong(const Phong& m)
-	: 	Material(m)
+	: 	Material(m),
+		shadows(false)
 {
 	if(m.ambient_brdf)
 		ambient_brdf = m.ambient_brdf->clone(); 
@@ -76,6 +78,8 @@ Phong::operator= (const Phong& rhs) {
 
 	if (rhs.specular_brdf)
 		specular_brdf = rhs.specular_brdf->clone();
+	
+	shadows = rhs.shadows;
 
 	return (*this);
 }
@@ -129,16 +133,25 @@ Phong::shade(ShadeRec& sr) {
 		float 		ndotwi 	= sr.normal * wi;
 
 		if (ndotwi > 0.0) {
-			bool in_shadow = false;
 
-			if (sr.w.lights[j]->casts_shadows()) {
-				Ray shadowRay(sr.hit_point, wi);
-				in_shadow = sr.w.lights[j]->in_shadow(shadowRay, sr);
+			if( shadows )
+			{
+				bool in_shadow = false;
+
+				if (sr.w.lights[j]->casts_shadows()) {
+					Ray shadowRay(sr.hit_point, wi);
+					in_shadow = sr.w.lights[j]->in_shadow(shadowRay, sr);
+				}
+
+				if (!in_shadow) 
+					L += (	diffuse_brdf->f(sr, wo, wi) 
+							  + specular_brdf->f(sr, wo, wi)) * sr.w.lights[j]->L(sr) * ndotwi;
 			}
-
-			if (!in_shadow) 
+			else
+			{
 				L += (	diffuse_brdf->f(sr, wo, wi) 
-						  + specular_brdf->f(sr, wo, wi)) * sr.w.lights[j]->L(sr) * ndotwi;
+							  + specular_brdf->f(sr, wo, wi)) * sr.w.lights[j]->L(sr) * ndotwi;
+			}
 		}
 	}
 	return (L);
@@ -169,16 +182,23 @@ Phong::area_light_shade(ShadeRec& sr)			//this is for chapter 18 page one image 
 		float 		ndotwi 	= sr.normal * wi;
 
 		if (ndotwi > 0.0) {
-			bool in_shadow = false;
+			if(shadows)
+			{
+				bool in_shadow = false;
 
-			if (sr.w.lights[j]->casts_shadows()) {
-				Ray shadowRay(sr.hit_point, wi);
-				in_shadow = sr.w.lights[j]->in_shadow(shadowRay, sr);
+				if (sr.w.lights[j]->casts_shadows()) {
+					Ray shadowRay(sr.hit_point, wi);
+					in_shadow = sr.w.lights[j]->in_shadow(shadowRay, sr);
+				}
+				if (!in_shadow) 
+					L += (	diffuse_brdf->f(sr, wo, wi) 
+							  + specular_brdf->f(sr, wo, wi)) * sr.w.lights[j]->L(sr) * ndotwi * sr.w.lights[j]->G(sr) / sr.w.lights[j]->pdf(sr);
 			}
-
-			if (!in_shadow) 
+			else
+			{
 				L += (	diffuse_brdf->f(sr, wo, wi) 
-						  + specular_brdf->f(sr, wo, wi)) * sr.w.lights[j]->L(sr) * ndotwi * sr.w.lights[j]->G(sr) / sr.w.lights[j]->pdf(sr);
+							  + specular_brdf->f(sr, wo, wi)) * sr.w.lights[j]->L(sr) * ndotwi * sr.w.lights[j]->G(sr) / sr.w.lights[j]->pdf(sr);
+			}
 		}
 	}
 	return (L);

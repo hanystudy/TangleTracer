@@ -1,3 +1,9 @@
+// 	Copyright (C) Mp77 2012
+//	Original from Kevin Suffern 2000-2007
+//	This C++ code is for non-commercial purposes only.
+//	This C++ code is licensed under the GNU General Public License Version 2.
+//	See the file COPYING.txt for the full license.
+
 #include "BeveledCylinder.h"
 
 #include "Instance.h"
@@ -60,11 +66,12 @@ BeveledCylinder::clone(void) const {
 
 BeveledCylinder::BeveledCylinder (const BeveledCylinder& c)
 	:	Compound(c),
-		bottom(0),
-		top(0),
-		r(0),
-		br(0) {
+		bottom(c.bottom),
+		top(c.top),
+		r(c.r),
+		br(c.br) {
 	
+	bbox = c.bbox;
 	copy_objects(c.objects);					
 }
 
